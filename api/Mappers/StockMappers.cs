@@ -23,6 +23,20 @@ namespace api.Mappers
                 
             };
         }
+
+        public static Stock ToStockFromCreateDto(this CreatedStockRequestDto StockDto)
+        {
+            return new Stock
+            {
+                Symbol = StockDto.Symbol,
+                CompanyName = StockDto.CompanyName,
+                Purchase = StockDto.Purchase,
+                LastDiv = StockDto.LastDiv,
+                Industry = StockDto.Industry,
+                MarketCap = StockDto.MarketCap
+            };
+            
+        }
         
     }
 }
