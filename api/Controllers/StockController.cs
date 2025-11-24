@@ -72,6 +72,23 @@ namespace api.Controllers
             
     }
 
+    [HttpDelete]
+    [Route("{id}")]
+    public IActionResult Delete([FromRoute] int id)
+    {
+        var stockModel = _context.Stocks.FirstOrDefault(s=>s.Id ==id);
+        if(stockModel is null)
+            return NotFound();
+        _context.Stocks.Remove(stockModel);
+        _context.SaveChanges();
+
+        // this used to show all the other elements in the list if you want it.
+        // var stocks = _context.Stocks.ToList().Select(s=>s.ToStockDto());
+        // return Ok(stocks);
+
+        return NoContent();
+    }
+
 
 
 
