@@ -65,7 +65,7 @@ namespace api.Controllers
         stockModel.LastDiv = updateDto.LastDiv;
         stockModel.Industry = updateDto.Industry;
         stockModel.MarketCap = updateDto.MarketCap;
-        _context.Stocks.Add(stockModel);
+        
         _context.SaveChanges();
         return Ok(stockModel.ToStockDto());
 
