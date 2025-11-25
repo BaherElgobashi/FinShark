@@ -5,22 +5,13 @@ using System.Threading.Tasks;
 using api.Data;
 using api.Interfaces;
 using api.Models;
+using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.EntityFrameworkCore;
 
 namespace api.Repository
 {
     public class StockRepository : IStockRepository
     {
-        private readonly ApplicationDbContext _context;
-        public StockRepository(ApplicationDbContext context)
-        {
-            _context = context;
-            
-        }
-        public Task<List<Stock>> GetAllAsync()
-        {
-            var stocks = _context.Stocks.ToListAsync();
-            return stocks;
-        }
+       
     }
 }
