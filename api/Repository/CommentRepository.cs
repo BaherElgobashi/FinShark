@@ -16,6 +16,9 @@ namespace api.Repository
         {
             _context = context;
         }
+
+       
+
         public async Task<List<Comment>> GetAllAsync()
         {
             var Comments = await _context.Comments.ToListAsync();
@@ -28,6 +31,13 @@ namespace api.Repository
             if(Comment is null)
                 return null;
             return Comment;
+        }
+
+         public async Task<Comment> CreateAsync(Comment CommentModel)
+        {
+            await _context.Comments.AddAsync(CommentModel);
+            await _context.SaveChangesAsync();
+            return CommentModel;
         }
     }
 }
