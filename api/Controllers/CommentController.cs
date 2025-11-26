@@ -53,6 +53,12 @@ namespace api.Controllers
             await _commentRepository.CreateAsync(comment);
             return CreatedAtAction(nameof(GetById), new{id = comment},comment.toCommentDto());
         }
-        
+        [HttpPut]
+        [Route("{id}")]
+
+        public async Task<IActionResult>Update([FromRoute]int id , [FromBody] UpdateCommentRequestDto updateDto)
+        {
+            var Comment = await _commentRepository.UpdateAsync(id ,updateDto );
+        }
     }
 }
