@@ -23,7 +23,6 @@ namespace api.Controllers
         }
 
         [HttpGet]
-
         public async Task<IActionResult> GetAll()
         {
             var Comments = await _commentRepository.GetAllAsync();
