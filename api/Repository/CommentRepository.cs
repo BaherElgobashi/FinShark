@@ -25,6 +25,8 @@ namespace api.Repository
         public async Task<Comment> GetByIdAsync(int id)
         {
             var Comment = await _context.Comments.FindAsync(id);
+            if(Comment is null)
+                return null;
             return Comment;
         }
     }
