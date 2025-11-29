@@ -57,7 +57,7 @@ namespace api.Controllers
 
             var comment = commentDto.ToCommentFromCreate(StockId);
             await _commentRepository.CreateAsync(comment);
-            return CreatedAtAction(nameof(GetById), new{id = comment},comment.toCommentDto());
+            return CreatedAtAction(nameof(GetById), new{id = comment.Id},comment.toCommentDto());
         }
         [HttpPut]
         [Route("{id:int}")]
