@@ -28,7 +28,7 @@ namespace api.Controllers
 
     [HttpGet]
 
-    public async Task<IActionResult> GetAll()
+    public async Task<IActionResult> GetAll([FromQuery]QueryObject query)
     {
         if(!ModelState.IsValid)
                 return BadRequest(ModelState);
