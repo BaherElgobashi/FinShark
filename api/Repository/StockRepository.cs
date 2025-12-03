@@ -43,7 +43,10 @@ namespace api.Repository
                 }
             }
 
-            return await stock.ToListAsync();
+            // use this for pagination.
+            var skipNumber = (query.PageNumber -1 ) * (query.PageSize);
+
+            return await stock.Skip(query.PageNumber).Take(query.PageSize).ToListAsync();
         }
 
         public async Task<Stock?> GetByIdAsync(int id)
