@@ -56,7 +56,7 @@ namespace api.Controllers
             }
             catch(Exception e)
             {
-                return StatusCode(500,e)
+                return StatusCode(500,e);
             }
         }
     }
