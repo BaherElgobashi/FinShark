@@ -31,7 +31,8 @@ builder.Services.AddIdentity<AppUser, IdentityRole>(options =>
     options.Password.RequireNonAlphanumeric = true;
     options.Password.RequiredLength = 12;
 
-});
+})
+.AddEntityFrameworkStores<ApplicationDbContext>();
 
 builder.Services.AddScoped<IStockRepository,StockRepository>();
 builder.Services.AddScoped<ICommentRepository,CommentRepository>();
