@@ -36,7 +36,7 @@ namespace api.Data
             .WithMany(a => a.Portfolios)
             .HasForeignKey(a=> a.AppUserId);
 
-            // Make Relationship with Stock.
+            // Make Relationship with AppUser.
             builder.Entity<Portfolio>()
             .HasOne(s=>s.Stock)
             .WithMany(s=>s.Portfolios)
