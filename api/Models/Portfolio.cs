@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace api.Models
 {
-    public class Portifolio
+    public class Portfolio
     {
         // Foreign key For AppUser.
         public string AppUserId { get; set; }

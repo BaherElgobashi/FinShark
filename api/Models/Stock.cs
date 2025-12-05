@@ -23,7 +23,7 @@ namespace api.Models
 
         public List<Comment> Comments { get; set; } = new List<Comment>();
 
-        
-
+        // Navigation Property for Portfolio.
+        public List<Portfolio> Portfolios { get; set; } = new List<Portfolio>();
     }
 }
