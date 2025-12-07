@@ -12,10 +12,18 @@ namespace api.Models
         public string Title { get; set; } = string.Empty;
         public string Content { get; set; } = string.Empty;
         public DateTime CreatedOn { get; set; } = DateTime.Now;
-        //Foreign key to Stock.
+        // Foreign key to Stock.
         public int? StockId { get; set; }
 
-        //Navigation property to Stock.
+        // Navigation property to Stock.
         public Stock? Stock { get; set; }
+
+        // Foreign key for AppUser.
+        public string AppUserId { get; set; }
+
+        // Navigation property to AppUser.
+        public AppUser AppUser { get; set; }
+
+
     }
 }
