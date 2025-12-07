@@ -18,16 +18,16 @@ namespace api.Repository
         }
         public async Task<List<Stock>> GetUserPortfolio(AppUser user)
         {
-            return await _context.Portfolios.Where(u=>u.AppUserId == user.Id)
-            .Select(stock => new Stock
+            return await _context.Portfolios.Include(p=>p.Stock).Where(u=>u.AppUserId == user.Id)
+            .Select(p => new Stock
             {
-                Id = stock.StockId,
-                Symbol = stock.Stock.Symbol,
-                CompanyName = stock.Stock.CompanyName,
-                Purchase = stock.Stock.Purchase,
-                LastDiv = stock.Stock.LastDiv,
-                Industry = stock.Stock.Industry ,
-                MarketCap = stock.Stock.MarketCap,
+                Id = p.StockId,
+                Symbol = p.Stock.Symbol,
+                CompanyName = p.Stock.CompanyName,
+                Purchase = p.Stock.Purchase,
+                LastDiv = p.Stock.LastDiv,
+                Industry = p.Stock.Industry ,
+                MarketCap = p.Stock.MarketCap,
             }).ToListAsync();
         }
     }
