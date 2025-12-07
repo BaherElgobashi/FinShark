@@ -16,6 +16,9 @@ namespace api.Repository
         {
             _context = context;
         }
+
+       
+
         public async Task<List<Stock>> GetUserPortfolio(AppUser user)
         {
             return await _context.Portfolios.Include(p=>p.Stock).Where(u=>u.AppUserId == user.Id)
@@ -29,6 +32,15 @@ namespace api.Repository
                 Industry = p.Stock.Industry ,
                 MarketCap = p.Stock.MarketCap,
             }).ToListAsync();
+        }
+
+
+
+         public async Task<Portfolio> CreateAsync(Portfolio portfolio)
+        {
+            await _context.Portfolios.AddAsync(portfolio);
+            await _context.SaveChangesAsync();
+            return portfolio;
         }
     }
 }
