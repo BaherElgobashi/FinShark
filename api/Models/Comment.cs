@@ -19,10 +19,10 @@ namespace api.Models
         public Stock? Stock { get; set; }
 
         // Foreign key for AppUser.
-        public string AppUserId { get; set; }
+        public string? AppUserId { get; set; }
 
         // Navigation property to AppUser.
-        public AppUser AppUser { get; set; }
+        public AppUser? AppUser { get; set; }
 
 
     }
