@@ -13,6 +13,8 @@ namespace api.Dtos.Comment
         public DateTime CreatedOn { get; set; } = DateTime.Now;
         //Foreign key to Stock.
         public int? StockId { get; set; }
+
+        public string CreatedBy { get; set; } = string.Empty;
         
     }
 }
