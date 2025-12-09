@@ -21,16 +21,21 @@ namespace api.Repository
 
         public async Task<List<Comment>> GetAllAsync()
         {
-            var Comments = await _context.Comments.ToListAsync();
-            return Comments;
+            // var Comments = await _context.Comments.ToListAsync();
+            // return Comments;
+
+            return await _context.Comments.Include(a=>a.AppUser).ToListAsync();
+
         }
 
         public async Task<Comment> GetByIdAsync(int id)
         {
-            var Comment = await _context.Comments.FindAsync(id);
-            if(Comment is null)
-                return null;
-            return Comment;
+            // var Comment = await _context.Comments.FindAsync(id);
+            // if(Comment is null)
+            //     return null;
+            // return Comment;
+
+            return await _context.Comments.Include(a => a.AppUser).FirstOrDefaultAsync(x => x.Id ==id);
         }
 
          public async Task<Comment> CreateAsync(Comment CommentModel)
